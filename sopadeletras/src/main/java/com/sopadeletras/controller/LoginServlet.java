@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
     protected void autentificacionLDAP(HttpServletRequest request, HttpServletResponse response)
     	    throws ServletException, IOException{
     	    	
-    	    	final String SUCCESS = "acceso.jsp";
+    	    	final String SUCCESS = "palabras.jsp";
     	    	final String FAILURE = "denegado.jsp";
     	    	String strUrl = "inicio.jsp";
     	    	String username = request.getParameter("nombre");

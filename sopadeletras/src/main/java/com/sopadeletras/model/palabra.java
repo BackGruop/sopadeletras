@@ -1,10 +1,37 @@
 package com.sopadeletras.model;
 
-public class palabra {
-	
-	String palabras;
-	int id;
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name ="palabras")
+public class palabra implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Column(name="palabra")
+	String palabras;
+	
+	@Id
+	@Column(name= "idpalabra")
+	int id;
+	
+	//Constructor con campos
+	public palabra(String palabras, int id) {
+		super();
+		this.palabras = palabras;
+		this.id = id;
+	}
+	
+	//Get y Set
 	public int getId() {
 		return id;
 	}
@@ -23,6 +50,12 @@ public class palabra {
 
 	public palabra() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	//To String
+	@Override
+	public String toString() {
+		return "palabra [palabras=" + palabras + ", id=" + id + "]";
 	}
 
 }

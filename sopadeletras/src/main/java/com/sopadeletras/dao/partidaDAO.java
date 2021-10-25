@@ -6,36 +6,37 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.sopadeletras.model.palabra;
+import com.sopadeletras.model.Partida;
 
-public class palabraDAO implements DAOinterface<palabra, Integer>{
-	
+public class partidaDAO implements DAOinterface<Partida, Integer> {
+
 	private EntityManager manager;
-
-	public palabraDAO() {
+	
+	public partidaDAO() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistencia");
 		manager = emf.createEntityManager();
 	}
 	
 	@Override
-	public void create(palabra e) {
+	public void create(Partida e) {
 		// TODO Auto-generated method stub
 		manager.getTransaction().begin();
 		manager.persist(e);
 		manager.getTransaction().commit();
+		
 	}
 
 	@Override
-	public palabra read(Integer d) {
+	public Partida read(Integer d) {
 		// TODO Auto-generated method stub
-		return manager.find(palabra.class, d);
+		return manager.find(Partida.class, d);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<palabra> findAll() {
+	public List<Partida> findAll() {
 		// TODO Auto-generated method stub
-		return (List<palabra>) manager.createQuery("FROM palabra").getResultList();
+		return (List<Partida>) manager.createQuery("FROM partida").getResultList();
 	}
 
 	@Override
@@ -53,8 +54,10 @@ public class palabraDAO implements DAOinterface<palabra, Integer>{
 		manager.getTransaction().begin();
 		manager.remove(e);
 		manager.getTransaction().commit();
+		
 	}
+
 	
-	
+
 
 }

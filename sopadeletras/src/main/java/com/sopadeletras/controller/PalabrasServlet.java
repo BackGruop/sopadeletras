@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sopadeletras.daomysql.palabrasDAOMysql;
+import com.sopadeletras.dao.palabraDAO;
 import com.sopadeletras.model.palabra;
 
 /**
@@ -23,8 +23,7 @@ public class PalabrasServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public PalabrasServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+         // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -35,12 +34,15 @@ public class PalabrasServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//Datos desde la bbdd
 		
-		palabrasDAOMysql palabrasBBDD= new palabrasDAOMysql();
+		
+		
+		
+		/*palabrasDAOMysql palabrasBBDD= new palabrasDAOMysql();
 		List<palabra> palabras = palabrasBBDD.findall();
 		
 		//Vista
 		request.setAttribute("palabras", palabras);
-		request.getRequestDispatcher("palabra.jsp").forward(request, response);
+		request.getRequestDispatcher("palabra.jsp").forward(request, response);*/
 	}
 
 	/**
