@@ -55,6 +55,6 @@ public class palabraDAO implements DAOinterface<palabra, Integer>{
 		manager.getTransaction().commit();
 	}
 	
-	
+
 
 }
