@@ -35,8 +35,6 @@ public class PalabrasServlet extends HttpServlet {
 		//Datos desde la bbdd
 		
 		
-		
-		
 		/*palabrasDAOMysql palabrasBBDD= new palabrasDAOMysql();
 		List<palabra> palabras = palabrasBBDD.findall();
 		
