@@ -1,7 +1,10 @@
 package com.sopadeletras.controller;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,15 +35,18 @@ public class PalabrasServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		//Datos desde la bbdd
 		
+		palabraDAO palabrasBBDD= new palabraDAO();
+		List<palabra> todasPalabras = palabrasBBDD.findAll();
 		
-		/*palabrasDAOMysql palabrasBBDD= new palabrasDAOMysql();
-		List<palabra> palabras = palabrasBBDD.findall();
 		
-		//Vista
-		request.setAttribute("palabras", palabras);
-		request.getRequestDispatcher("palabra.jsp").forward(request, response);*/
+		/*String [] pruebas = {"prueba", "pru2", "pru3"};*/
+		
+		//Mandar a la Vista
+		request.setAttribute("listaPalabras", todasPalabras);
+		request.getRequestDispatcher("palabras.jsp").forward(request, response);
 	}
 
 	/**
