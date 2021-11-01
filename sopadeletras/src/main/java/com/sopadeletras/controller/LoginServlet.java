@@ -32,8 +32,8 @@ public class LoginServlet extends HttpServlet {
     protected void autentificacionLDAP(HttpServletRequest request, HttpServletResponse response)
     	    throws ServletException, IOException{
     	    	
-    	    	final String SUCCESS = "palabras.jsp";
-    	    	final String FAILURE = "denegado.jsp";
+    	    	final String SUCCESS = "/palabras";
+    	    	final String FAILURE = "/denegado";
     	    	String strUrl = "inicio.jsp";
     	    	String username = request.getParameter("nombre");
     	    	String password = request.getParameter("contrasena");
@@ -60,15 +60,16 @@ public class LoginServlet extends HttpServlet {
     	    		autentificado = false;
     	    	}finally {
     	    		if (autentificado) {
-    	    			System.out.print("Success");
+    	    			System.out.print("Acceso a palabras jsp");
     	    			strUrl = SUCCESS;
     	    		}else {
-    	    			System.out.print("Failure");
+    	    			System.out.print("Acceso a denegado jsp");
     	    			strUrl = FAILURE;
     	    		}
     	    	}
     	    	//eNVIAMOS A jsp CORRESPONDIENTE
     	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);
+    	    	
     	    	rd.forward(request, response);
     	    }
 	/**
