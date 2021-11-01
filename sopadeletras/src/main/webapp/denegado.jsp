@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Acceso denegado</title>
 </head>
 <body>
+<h1>Acceso denegado JSP</h1>
 
 </body>
 </html>

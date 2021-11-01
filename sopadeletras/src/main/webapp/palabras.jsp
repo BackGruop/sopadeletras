@@ -9,12 +9,16 @@
 </head>
 <body>
 <h1>Palabras JSP</h1>
+<script>
 
-<c:forEach var="tempPalabras" items="${listaPalabras }">
-
-${tempPalabras}<br>
+var palabras=[];
+<c:forEach var="tempPalabras" items="${listaPalabras}">
+//palabras.push(${tempPalabras}.id);
+alert(${tempPalabras});
+//${tempPalabras}<br>
 </c:forEach>
-
+console.log(palabras);
+</script>
 
 </body>
 </html>
