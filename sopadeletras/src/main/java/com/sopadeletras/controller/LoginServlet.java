@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -60,14 +61,17 @@ public class LoginServlet extends HttpServlet {
     	    		autentificado = false;
     	    	}finally {
     	    		if (autentificado) {
-    	    			System.out.print("Acceso a palabras jsp");
+    	    			System.out.print("Acceso a palabras.jsp");
     	    			strUrl = SUCCESS;
+    	    			HttpSession session=request.getSession();
+      			      	session.setAttribute("nombre",username);
+      			      	
     	    		}else {
-    	    			System.out.print("Acceso a denegado jsp");
+    	    			System.out.print("Acceso a denegado.jsp");
     	    			strUrl = FAILURE;
     	    		}
     	    	}
-    	    	//eNVIAMOS A jsp CORRESPONDIENTE
+    	    	//ENVIAMOS A Vista CORRESPONDIENTE
     	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);
     	    	
     	    	rd.forward(request, response);

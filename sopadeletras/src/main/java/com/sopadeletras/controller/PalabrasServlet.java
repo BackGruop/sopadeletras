@@ -1,7 +1,6 @@
 package com.sopadeletras.controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -41,8 +40,9 @@ public class PalabrasServlet extends HttpServlet {
 		palabraDAO palabrasBBDD= new palabraDAO();
 		List<palabra> todasPalabras = palabrasBBDD.findAll();
 		
+		/*List<palabra> listaPalabras = new ArrayList<palabra>();
 		
-		/*String [] pruebas = {"prueba", "pru2", "pru3"};*/
+		String [] pruebas = {"prueba", "pru2", "pru3"};*/
 		
 		//Mandar a la Vista
 		request.setAttribute("listaPalabras", todasPalabras);

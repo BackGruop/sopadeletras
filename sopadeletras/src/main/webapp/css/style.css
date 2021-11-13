@@ -1,0 +1,13 @@
+#palabras {
+  display: inline-block;
+  max-width: 30rem;
+  padding: 1em;
+  list-style-type: none;
+  text-align: left;
+}
+
+html,body{
+background-color: orange;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
