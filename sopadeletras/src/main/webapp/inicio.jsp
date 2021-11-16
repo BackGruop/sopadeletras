@@ -4,13 +4,13 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>inicio</title>
+	<title>Sopa de Letras</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">   		
 	<script src="js/bootstrap.min.js"></script>  
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1>Login JSP</h1>
+<h2>Sopa de letras BackGroup</h2>
 	<div class="container">
 		<form action="LoginServlet" method="post">
 			<label>Nombre</label>

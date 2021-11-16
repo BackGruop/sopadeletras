@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sopadeletras.dao.palabraDAO;
+import com.sopadeletras.dao.partidaDAO;
+import com.sopadeletras.model.Partida;
 import com.sopadeletras.model.palabra;
 
 /**
@@ -55,6 +57,33 @@ public class PalabrasServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		//String nombre = (String)request.getSession().getAttribute("nombre");
+		/*int tiempo = Integer.parseInt(request.getParameter("tiempo"));
+		
+		int puntuacion = 0;
+		
+		if (tiempo <= 10) {
+			puntuacion = 500;			
+		} else if (tiempo <= 20){
+			puntuacion = 200;
+		} else if (tiempo <= 30){
+			puntuacion = 100;
+		} else if (tiempo <= 60){
+			puntuacion = 50;
+		} else if (tiempo <= 120){
+			puntuacion = 25;
+		}else puntuacion = 10;	*/
+		
+		/*Partida partida = Partida(nombre, puntuacion);
+		partidaDAO PartidaDAO = new partidaDAO();
+		PartidaDAO.create(partida);
+		String puntuacion = "Mil puntos";//String.valueOf(puntuacion);
+		response.setContentType("text/plain");
+	    //response.setCharacterEncoding("UTF-8");
+		 
+	    response.getWriter().write(puntuacion);	*/
+		
 	}
 
 }

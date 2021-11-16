@@ -21,12 +21,12 @@ public class GetUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nombre = request.getParameter("nombre").trim();
-		if(nombre == null || "".equals(nombre)){
-			nombre = "Guest";
-		}
+		/*String userName = request.getParameter("userName").trim();
+		if(userName == null || "".equals(userName)){
+			userName = "Guest";
+		}*/
 		
-		String greetings = "Hola " + nombre;
+		String greetings = "Hola ";// + userName;
 		
 		response.setContentType("text/plain");
 		response.getWriter().write(greetings);
