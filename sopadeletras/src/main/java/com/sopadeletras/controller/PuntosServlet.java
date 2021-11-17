@@ -7,11 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class GetUserServlet
- */
-@WebServlet("/GetUserServlet")
-public class GetUserServlet extends HttpServlet {
+
+@WebServlet("/PuntosServlet")
+public class PuntosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 
@@ -25,11 +23,24 @@ public class GetUserServlet extends HttpServlet {
 		if(userName == null || "".equals(userName)){
 			userName = "Guest";
 		}*/
+		int time = Integer.parseInt(request.getParameter("tiempo"));
+		String calificacion = null;
 		
-		String greetings = "Hola ";// + userName;
+		if (time <=60) {
+			calificacion = "Ultra veloz!!";
+			} else if (time <= 120) {
+			calificacion = "Has sido muy rapido";
+			}else if (time <= 180) {
+				calificacion = "Muy bien";
+			}else if (time <= 240) {
+				calificacion = "No esta mal";
+			}else if (time <= 300) {
+				calificacion = "Un poco lento";
+		}
+		
 		
 		response.setContentType("text/plain");
-		response.getWriter().write(greetings);
+		response.getWriter().write(calificacion);
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

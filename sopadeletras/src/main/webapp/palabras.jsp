@@ -28,27 +28,14 @@
 
 <div class="container">
 	
-		<!--  <div class="col-md-4 text-center">
-			<button type="button" id="solve" class="btn btn-warning btn-lg">Resolver</button>
-		</div>
-		
-	<div class="alert alert-success text-center fade" role="alert" id="puntosAlert">
-		<p>¡¡Enhorabuena!! Se ha guardado tu puntuación de <strong><span id="puntos"></span></strong></p>			
-		<form><input type="submit" value="jugar de nuevo" class="btn btn-dark"></form>
-	</div>
-	-->	
-	
 	<div class="row w-100">
 		<div class="col-md-8">
 			<div id="timer">00</div>
 			<div id='puzzle'></div>
 		</div>
 		
-		<form>
-		Enter Your Name: <input type="text" id="userName" />
-	</form>
-	<strong>Ajax Response</strong>:
-	<div id="ajaxGetUserServletResponse"></div>
+	<strong>Se muestra puntaje si has acertado:</strong>:
+	<div id="ajaxPuntaje"></div>
 		
 		<div class="col-md-4">
 			<p>Encuentra las siguientes palabras:</p>
@@ -68,13 +55,14 @@
 </div>	
 
 <script>
+
 			<!-- Reiniciar -->
 			function refreshPage(){
 			    window.location.reload();
 			}
 
 			<!-- Obtienendo la lista de palabras -->
-			var palabras=[];
+			let palabras=[];
 			<c:forEach var="tempPalabras" items="${listaPalabras}">
 				palabras.push("${tempPalabras.palabras}");
 				<!--document.write("${tempPalabras.palabras} <br>");-->
@@ -87,7 +75,6 @@
 			    width: 10,
 			    fillBlanks: false
 			});
-			   
 
 			 var gamePuzzle = wordfindgame.create(palabras, '#puzzle', '#words');
 			  
@@ -98,33 +85,32 @@
 			 
 			 <!-- Comprobar tiempo -->
 			 
-			 var timer = setInterval(voyComprobando, 1000);
+			 var timer = setInterval(juegoCompleto, 1000);
 
-			 var t = 0;
+			 let t = 0;
 
-			 function voyComprobando(){
+			 function juegoCompleto(){
 			 	var l = document.getElementById("timer");
 			 	l.innerHTML = t;
 			 	if ($('.puzzleSquare').hasClass('complete')){
-			 		hasAcertado();
+			 		muestraPuntaje();
 			 	}
 			 	t++
 			 }
 			 
-
-			 $(document).ready(function() {
-			 	$('#userName').blur(function() {
+		<!-- AJAX Muestra puntaje al completar todas las palabras -->
+		
+			var muestraPuntaje = function() {
 			 		$.ajax({
-			 			url : 'GetUserServlet',
-			 			data : {
-			 				userName : $('#userName').val()
-			 			},
+			 			type: "GET",
+			 			url : 'PuntosServlet',
+			 			data: {tiempo: t},
 			 			success : function(responseText) {
-			 				$('#ajaxGetUserServletResponse').text(responseText);
+			 				$('#ajaxPuntaje').text(responseText);
 			 			}
 			 		});
-			 	});
-			 });
+			 		clearInterval(timer);
+			 	};
 
 
 			
