@@ -29,18 +29,18 @@ public class PuntosServlet extends HttpServlet {
 		if (time <=60) {
 			calificacion = "Ultra veloz!!";
 			} else if (time <= 120) {
-			calificacion = "Has sido muy rapido";
+			calificacion = "Has sido muy rapido: ";
 			}else if (time <= 180) {
-				calificacion = "Muy bien";
+				calificacion = "Muy bien: ";
 			}else if (time <= 240) {
-				calificacion = "No esta mal";
+				calificacion = "No esta mal: ";
 			}else if (time <= 300) {
-				calificacion = "Un poco lento";
+				calificacion = "Un poco lento: ";
 		}
 		
 		
 		response.setContentType("text/plain");
-		response.getWriter().write(calificacion);
+		response.getWriter().write(calificacion+(String.valueOf(time))+ " segundos");
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

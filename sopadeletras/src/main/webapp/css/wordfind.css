@@ -88,6 +88,7 @@ button::-moz-focus-inner {
 * Styles for the word list
 */
 #words {
+	text-transform: capitalize;
   display: inline-block;
   max-width: 30rem;
   padding: 1em;
@@ -104,6 +105,7 @@ button::-moz-focus-inner {
 }
 
 #words li {
+	text-transform: capitalize;
   padding: 3px 0;
   font: 2em sans-serif;
 }

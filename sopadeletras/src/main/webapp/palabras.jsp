@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Palabras</title>
+	<title>Backgroup Palabras</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">   		
 	<script src="js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -33,14 +33,12 @@
 			<div id="timer">00</div>
 			<div id='puzzle'></div>
 		</div>
-		
-	<strong>Se muestra puntaje si has acertado:</strong>:
-	<div id="ajaxPuntaje"></div>
+		<div id="completo" style="display: none"><strong>Todas las palabras encontradas! </strong>:</div>
+			<div id="ajaxPuntaje"></div>
 		
 		<div class="col-md-4">
 			<p>Encuentra las siguientes palabras:</p>
-			<div id='words'></div>
-			<!--  <div id="puntuacion"></div>-->	
+			<div id='words'></div>	
 			<div class="row w-100">
 				<div class="col-md-4 text-center">
 					<form method="get" action="inicio.jsp">
@@ -68,34 +66,20 @@
 				<!--document.write("${tempPalabras.palabras} <br>");-->
 			</c:forEach>
 			
-			<!-- Juego function app-ajax -->
 			
-			var puzzle = wordfind.newPuzzle(palabras, {
-			    height: 10,
-			    width: 10,
-			    fillBlanks: false
-			});
-
-			 var gamePuzzle = wordfindgame.create(palabras, '#puzzle', '#words');
-			  
-			 $('#solve').click(function() {
-			 <!-- clearInterval(timer);-->
-			     wordfindgame.solve(gamePuzzle, palabras);
-			 });
+			<!-- Comprobar tiempo -->
 			 
-			 <!-- Comprobar tiempo -->
-			 
-			 var timer = setInterval(juegoCompleto, 1000);
+			 let timer = setInterval(juegoCompleto, 1000);
 
-			 let t = 0;
+			 let tim = 0;
 
 			 function juegoCompleto(){
 			 	var l = document.getElementById("timer");
-			 	l.innerHTML = t;
+			 	l.innerHTML = tim;
 			 	if ($('.puzzleSquare').hasClass('complete')){
 			 		muestraPuntaje();
 			 	}
-			 	t++
+			 	tim++
 			 }
 			 
 		<!-- AJAX Muestra puntaje al completar todas las palabras -->
@@ -104,16 +88,30 @@
 			 		$.ajax({
 			 			type: "GET",
 			 			url : 'PuntosServlet',
-			 			data: {tiempo: t},
+			 			data: {tiempo: tim},
 			 			success : function(responseText) {
 			 				$('#ajaxPuntaje').text(responseText);
+			 				<!-- Muestra mensaje juego completo -->
+			 				$('#completo').show();
 			 			}
 			 		});
 			 		clearInterval(timer);
 			 	};
 
-
+			<!-- Juego function -->
 			
+			let puzzle = wordfind.newPuzzle(palabras, {
+			    height: 10,
+			    width: 10,
+			    fillBlanks: false
+			});
+
+			 let gamePuzzle = wordfindgame.create(palabras, '#puzzle', '#words');
+			  
+			 $('#solve').click(function() {
+			  <!--clearInterval(timer);-->
+			     wordfindgame.solve(gamePuzzle, palabras);
+			 });
 
 	            
 </script>
