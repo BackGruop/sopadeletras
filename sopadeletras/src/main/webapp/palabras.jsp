@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Backgroup Palabras</title>
+	<title>Palabras</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">   		
 	<script src="js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -28,17 +28,30 @@
 
 <div class="container">
 	
+		<!--  <div class="col-md-4 text-center">
+			<button type="button" id="solve" class="btn btn-warning btn-lg">Resolver</button>
+		</div>
+		
+	<div class="alert alert-success text-center fade" role="alert" id="puntosAlert">
+		<p>¡¡Enhorabuena!! Se ha guardado tu puntuación de <strong><span id="puntos"></span></strong></p>			
+		<form><input type="submit" value="jugar de nuevo" class="btn btn-dark"></form>
+	</div>
+	-->	
+	
 	<div class="row w-100">
 		<div class="col-md-8">
 			<div id="timer">00</div>
 			<div id='puzzle'></div>
 		</div>
-		<div id="completo" style="display: none"><strong>Todas las palabras encontradas! </strong>:</div>
-			<div id="ajaxPuntaje"></div>
+		
+
+	<strong>Ajax Response</strong>:
+	<div id="ajaxGetUserServletResponse"></div>
 		
 		<div class="col-md-4">
 			<p>Encuentra las siguientes palabras:</p>
-			<div id='words'></div>	
+			<div id='words'></div>
+			<!--  <div id="puntuacion"></div>-->	
 			<div class="row w-100">
 				<div class="col-md-4 text-center">
 					<form method="get" action="inicio.jsp">
@@ -53,66 +66,59 @@
 </div>	
 
 <script>
-
 			<!-- Reiniciar -->
 			function refreshPage(){
 			    window.location.reload();
 			}
-
 			<!-- Obtienendo la lista de palabras -->
-			let palabras=[];
+			var palabras=[];
 			<c:forEach var="tempPalabras" items="${listaPalabras}">
 				palabras.push("${tempPalabras.palabras}");
 				<!--document.write("${tempPalabras.palabras} <br>");-->
 			</c:forEach>
 			
+			<!-- Juego function app-ajax -->
 			
-			<!-- Comprobar tiempo -->
-			 
-			 let timer = setInterval(juegoCompleto, 1000);
-
-			 let tim = 0;
-
-			 function juegoCompleto(){
-			 	var l = document.getElementById("timer");
-			 	l.innerHTML = tim;
-			 	if ($('.puzzleSquare').hasClass('complete')){
-			 		muestraPuntaje();
-			 	}
-			 	tim++
-			 }
-			 
-		<!-- AJAX Muestra puntaje al completar todas las palabras -->
-		
-			var muestraPuntaje = function() {
-			 		$.ajax({
-			 			type: "GET",
-			 			url : 'PuntosServlet',
-			 			data: {tiempo: tim},
-			 			success : function(responseText) {
-			 				$('#ajaxPuntaje').text(responseText);
-			 				<!-- Muestra mensaje juego completo -->
-			 				$('#completo').show();
-			 			}
-			 		});
-			 		clearInterval(timer);
-			 	};
-
-			<!-- Juego function -->
-			
-			let puzzle = wordfind.newPuzzle(palabras, {
+			var puzzle = wordfind.newPuzzle(palabras, {
 			    height: 10,
 			    width: 10,
 			    fillBlanks: false
 			});
-
-			 let gamePuzzle = wordfindgame.create(palabras, '#puzzle', '#words');
+			   
+			 var gamePuzzle = wordfindgame.create(palabras, '#puzzle', '#words');
 			  
 			 $('#solve').click(function() {
-			  <!--clearInterval(timer);-->
+			 <!-- clearInterval(timer);-->
 			     wordfindgame.solve(gamePuzzle, palabras);
 			 });
+			 
+			 <!-- Comprobar tiempo -->
+			 
+			 var timer = setInterval(voyComprobando, 1000);
+			 var t = 0;
+			 function voyComprobando(){
+			 	var l = document.getElementById("timer");
+			 	l.innerHTML = t;
+			 	if ($('.puzzleSquare').hasClass('complete')){
+			 		hasAcertado();
+			 	}
+			 	t++
+			 }
 
+			$(document).ready(function() {
+			 	$('#userName').blur(function() {
+			 		$.ajax({
+			 			url : 'GetUserServlet',
+			 			data : {
+			 				userName : $('#userName').val()
+			 			},
+			 			success : function(responseText) {
+			 				$('#ajaxGetUserServletResponse').text(responseText);
+			 			}
+			 		});
+			 	});
+			 });
+			
 	            
 </script>
 

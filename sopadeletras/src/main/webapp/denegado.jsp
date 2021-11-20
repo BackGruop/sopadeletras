@@ -5,9 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Acceso denegado</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1>Acceso denegado JSP</h1>
+<h1>Acceso denegado!</h1>
+<a id="adenegado" href="inicio.html">Vuelve a inentarlo<a/>
 
 </body>
 </html>
