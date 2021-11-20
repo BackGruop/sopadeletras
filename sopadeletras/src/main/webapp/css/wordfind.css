@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 body {
+  background-color:white;
   font-size: 1em;
-  foont-family: "Roboto", sans-serif;
+  foont-family: "Numans", sans-serif;
 }
-
+#titulo{
+text-align:center;
+}
 p {
   font-size: 1em;
   foont-family: "Roboto", sans-serif;
   margin: 20px 20px 0px 20px;
 }
+
 
 h1 {
   text-align: center; /* to center #puzzle on small devices */
@@ -48,7 +52,7 @@ h1 {
   background-color: grey;
   border: 0;
   font-size: 5vw;
-  foont-family: "Roboto", sans-serif;
+  foont-family: "Numans", sans-serif;
 }
 @media only screen and (min-width: 600px) {
   #puzzle {
@@ -59,7 +63,7 @@ h1 {
     height: 3.5rem;
     width: 3.5rem;
     font-size: 2.5rem;
-  foont-family: "Roboto", sans-serif;
+  foont-family: "Numans", sans-serif;
   }
 }
 
@@ -112,7 +116,7 @@ button::-moz-focus-inner {
 	text-transform: capitalize;
   padding: 3px 0;
   font-size: 2em;
-  foont-family: "Roboto", sans-serif;
+  foont-family: "Numans", sans-serif;
 }
 
 /* indicates that the word has been found */
