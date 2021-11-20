@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Backgroup Palabras</title>
+	<h1 class="display-1">Backgroup Palabras</h1>
 	<link rel="stylesheet" href="css/bootstrap.min.css">   		
 	<script src="js/bootstrap.min.js"></script> 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -23,14 +23,15 @@
 
 <body>
 
-<h2>Bienvenid@:<%= session.getAttribute("nombre") %></h2>
+<h3 class="display-4">Bienvenid@: <%= session.getAttribute("nombre")%></h3>
 
 
 <div class="container">
 	
 	<div class="row w-100">
 		<div class="col-md-8">
-			<div id="timer">00</div>
+		<p>Tiempo:</p>
+			<div id="timer"> 00</div>
 			<div id='puzzle'></div>
 		</div>
 		<div id="completo" style="display: none"><strong>Todas las palabras encontradas! </strong>:</div>
@@ -38,17 +39,18 @@
 		
 		<div class="col-md-4">
 			<p>Encuentra las siguientes palabras:</p>
-			<div id='words'></div>	
+			<div id='words'></div>
+		</div>	
 			<div class="row w-100">
-				<div class="col-md-4 text-center">
+				<div class="col-md-5 text-center">
 					<form method="get" action="inicio.jsp">
 					<input type="submit" value="Salir" class="btn btn-danger btn-lg">
-					</form>
-					<button type="submit" onClick="refreshPage()" class="btn btn-danger btn-lg">Reiniciar</button>
 					
+					<button type="submit" onClick="refreshPage()" class="btn btn-danger btn-lg">Reiniciar</button>
+					</form>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 </div>	
 

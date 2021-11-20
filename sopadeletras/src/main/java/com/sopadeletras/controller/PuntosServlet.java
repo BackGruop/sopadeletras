@@ -23,11 +23,14 @@ public class PuntosServlet extends HttpServlet {
 		if(userName == null || "".equals(userName)){
 			userName = "Guest";
 		}*/
+		//Obtenemos tiempo y parseamos desde time
 		int time = Integer.parseInt(request.getParameter("tiempo"));
+		//Creamos variable e inicializamos para guardar string de respuesta
 		String calificacion = null;
 		
+		//
 		if (time <=60) {
-			calificacion = "Ultra veloz!!";
+			calificacion = "Ultra veloz!! ";
 			} else if (time <= 120) {
 			calificacion = "Has sido muy rapido: ";
 			}else if (time <= 180) {
@@ -38,7 +41,7 @@ public class PuntosServlet extends HttpServlet {
 				calificacion = "Un poco lento: ";
 		}
 		
-		
+		//Enviamos cadena con respuesta y valor de tiempo
 		response.setContentType("text/plain");
 		response.getWriter().write(calificacion+(String.valueOf(time))+ " segundos");
 		

@@ -37,7 +37,7 @@ public class PalabrasServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//Datos desde la bbdd
+		//Obtenemos Datos desde la bbdd
 		
 		palabraDAO palabrasBBDD= new palabraDAO();
 		List<palabra> todasPalabras = palabrasBBDD.findAll();
@@ -46,7 +46,7 @@ public class PalabrasServlet extends HttpServlet {
 		
 		String [] pruebas = {"prueba", "pru2", "pru3"};*/
 		
-		//Mandar a la Vista
+		//Mandamos lista de palabras a la Vista
 		request.setAttribute("listaPalabras", todasPalabras);
 		request.getRequestDispatcher("palabras.jsp").forward(request, response);
 	}

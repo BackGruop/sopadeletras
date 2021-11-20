@@ -64,7 +64,8 @@ public class LoginServlet extends HttpServlet {
     	    			System.out.print("Acceso a palabras.jsp");
     	    			strUrl = SUCCESS;
     	    			HttpSession session=request.getSession();
-      			      	session.setAttribute("nombre",username);
+    	    			String Username = username.toUpperCase();
+      			      	session.setAttribute("nombre",Username);
       			      	
     	    		}else {
     	    			System.out.print("Acceso a denegado.jsp");
