@@ -10,15 +10,13 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h2>Sopa de letras BackGroup</h2>
-	<div class="container">
+<h2 id="titulo">Sopa de letras BackGroup</h2>
+
 		<form action="LoginServlet" method="post">
-			<label>Nombre</label>
-			<input type="text" name="nombre"> 
-			<label>Contraseña</label>
-			<input type="text" name="contrasena"> 
-			<button type="submit">Enviar</button>
+			<input type="text" name="nombre" placeholder="Nombre" required autofocus/> 
+			<input type="text" name="contrasena" placeholder="Contrasena" required/> 
+			<button id="enviar name="enviar" "type="submit" class="btn">Enviar</button>
 		</form>
-	</div>
+
 </body>
 </html>
