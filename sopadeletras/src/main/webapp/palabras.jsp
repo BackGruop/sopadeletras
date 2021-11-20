@@ -8,14 +8,15 @@
 	<title>Palabras</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">   		
 	<script src="js/bootstrap.min.js"></script> 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/wordfind.css">	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 	
 	
 	<script src="https://code.jquery.com/jquery-1.10.2.js"
 	type="text/javascript"></script>
 	<script src="js/wordfind.js"></script>
-    <script src="js/wordfindgame.js"></script>
+        <script src="js/wordfindgame.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
 	
@@ -23,7 +24,7 @@
 
 <body>
 
-<h2>Bienvenid@:<%= session.getAttribute("nombre") %></h2>
+<h2 id="titulo">Bienvenid@:<%= session.getAttribute("nombre") %></h2>
 
 
 <div class="container">
