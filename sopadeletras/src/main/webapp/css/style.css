@@ -1,15 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-color: #0080ff;
+background-color: white;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
-.container{
-height: 100%;
-align-content: center;
+#titulo{
+text-align:center;
 }
+form{
+  padding: 60px;
+  max-width: 400px;
+  background-color: #E7E7E7;
+  margin: 0 auto;
+}
+
+form input, form textarea{
+  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; 
+  border: none; 
+  color: #525c66; 
+  font-size: 1em;
+  resize: none; 
+}
+
+form button {
+	display: block;
+	background-color: #0095eb;
+	padding: 10px 45px 10px 45px;
+	border: 0;
+	font-size: 1em; 
+	color: 	blue;
+  font-family: "Roboto", sans-serif;
+}
+form button: hover{
+	background-color: #046193;
+}
+textarea {  resize: none;}
 
 .card{
 height: 370px;
@@ -86,3 +117,7 @@ margin-left: 4px;
   font-size:50px;
   color:white;
 }
+
+#adenegado{color:black;}
+
+#adenegado:hover{color:grey;}

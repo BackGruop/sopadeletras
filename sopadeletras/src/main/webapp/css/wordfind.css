@@ -1,11 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css?family=Numans');
 
 body {
-  font: 1em Helvetica;
+  font-size: 1em;
+  foont-family: "Roboto", sans-serif;
 }
 
 p {
-  font: 22pt sans-serif;
+  font-size: 1em;
+  foont-family: "Roboto", sans-serif;
   margin: 20px 20px 0px 20px;
 }
 
@@ -45,7 +47,8 @@ h1 {
   text-transform: uppercase;
   background-color: grey;
   border: 0;
-  font: 5vw sans-serif;
+  font-size: 5vw;
+  foont-family: "Roboto", sans-serif;
 }
 @media only screen and (min-width: 600px) {
   #puzzle {
@@ -55,7 +58,8 @@ h1 {
   .puzzleSquare {
     height: 3.5rem;
     width: 3.5rem;
-    font: 2.5rem sans-serif;
+    font-size: 2.5rem;
+  foont-family: "Roboto", sans-serif;
   }
 }
 
@@ -65,7 +69,7 @@ button::-moz-focus-inner {
 
 /* indicates when a square has been selected */
 #puzzle .selected {
-  background-color: orange;
+  background-color: blue;
 }
 
 /* indicates that the square is part of a word that has been found */ 
@@ -107,13 +111,14 @@ button::-moz-focus-inner {
 #words li {
 	text-transform: capitalize;
   padding: 3px 0;
-  font: 2em sans-serif;
+  font-size: 2em;
+  foont-family: "Roboto", sans-serif;
 }
 
 /* indicates that the word has been found */
 .wordFound {
   text-decoration: line-through;
-  color: gray;
+  color: green;
 }
 
 /**
