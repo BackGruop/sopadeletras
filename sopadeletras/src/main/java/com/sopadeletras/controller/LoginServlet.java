@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,8 +40,6 @@ public class LoginServlet extends HttpServlet {
     	    	String password = request.getParameter("contrasena");
     	    	
     	    	Hashtable<String, String> env = new Hashtable<>();
-    	    	
-    	    	//Variable control autenticacion
     	    	boolean autentificado = false;
     	    	
     	    	//Parametros para la conexion LDAP
@@ -53,23 +52,25 @@ public class LoginServlet extends HttpServlet {
     	    		//Contexto inicial
     	    		DirContext ctx = new InitialDirContext(env);
     	    		
-    	    		//Establecemos variable y cerramos el contexto
     	    		autentificado = true;
     	    		ctx.close();
     	    	} catch (NamingException e) {
     	    		autentificado = false;
     	    	}finally {
     	    		if (autentificado) {
-    	    			System.out.print("Acceso a palabras jsp");
+    	    			System.out.print("Acceso a palabras.jsp");
     	    			strUrl = SUCCESS;
+    	    			HttpSession session=request.getSession();
+    	    			String Username = username.toUpperCase();
+      			      	session.setAttribute("nombre",Username);
+      			      	
     	    		}else {
-    	    			System.out.print("Acceso a denegado jsp");
+    	    			System.out.print("Acceso a denegado.jsp");
     	    			strUrl = FAILURE;
     	    		}
     	    	}
-    	    	//eNVIAMOS A jsp CORRESPONDIENTE
-    	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);
-    	    	
+    	    	//ENVIAMOS A Vista CORRESPONDIENTE
+    	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);    	
     	    	rd.forward(request, response);
     	    }
 	/**

@@ -1,7 +1,6 @@
 package com.sopadeletras.controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sopadeletras.dao.palabraDAO;
+import com.sopadeletras.dao.partidaDAO;
+import com.sopadeletras.model.Partida;
 import com.sopadeletras.model.palabra;
 
 /**
@@ -36,15 +37,14 @@ public class PalabrasServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//Datos desde la bbdd
+		//Obtenemos Datos desde la bbdd
 		
 		palabraDAO palabrasBBDD= new palabraDAO();
 		List<palabra> todasPalabras = palabrasBBDD.findAll();
 		
-		
 		/*String [] pruebas = {"prueba", "pru2", "pru3"};*/
 		
-		//Mandar a la Vista
+		//Mandamos lista de palabras a la Vista
 		request.setAttribute("listaPalabras", todasPalabras);
 		request.getRequestDispatcher("palabras.jsp").forward(request, response);
 	}
@@ -55,6 +55,9 @@ public class PalabrasServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		
+		
 	}
 
 }
