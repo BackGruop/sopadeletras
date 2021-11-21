@@ -23,6 +23,7 @@ public class PuntosServlet extends HttpServlet {
 		if(userName == null || "".equals(userName)){
 			userName = "Guest";
 		}*/
+		
 		//Obtenemos tiempo y parseamos desde time
 		int time = Integer.parseInt(request.getParameter("tiempo"));
 		//Creamos variable e inicializamos para guardar string de respuesta

@@ -40,8 +40,6 @@ public class LoginServlet extends HttpServlet {
     	    	String password = request.getParameter("contrasena");
     	    	
     	    	Hashtable<String, String> env = new Hashtable<>();
-    	    	
-    	    	//Variable control autenticacion
     	    	boolean autentificado = false;
     	    	
     	    	//Parametros para la conexion LDAP
@@ -54,7 +52,6 @@ public class LoginServlet extends HttpServlet {
     	    		//Contexto inicial
     	    		DirContext ctx = new InitialDirContext(env);
     	    		
-    	    		//Establecemos variable y cerramos el contexto
     	    		autentificado = true;
     	    		ctx.close();
     	    	} catch (NamingException e) {
@@ -73,8 +70,7 @@ public class LoginServlet extends HttpServlet {
     	    		}
     	    	}
     	    	//ENVIAMOS A Vista CORRESPONDIENTE
-    	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);
-    	    	
+    	    	RequestDispatcher rd = request.getRequestDispatcher(strUrl);    	
     	    	rd.forward(request, response);
     	    }
 	/**

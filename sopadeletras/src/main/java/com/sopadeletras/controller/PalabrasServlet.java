@@ -42,9 +42,7 @@ public class PalabrasServlet extends HttpServlet {
 		palabraDAO palabrasBBDD= new palabraDAO();
 		List<palabra> todasPalabras = palabrasBBDD.findAll();
 		
-		/*List<palabra> listaPalabras = new ArrayList<palabra>();
-		
-		String [] pruebas = {"prueba", "pru2", "pru3"};*/
+		/*String [] pruebas = {"prueba", "pru2", "pru3"};*/
 		
 		//Mandamos lista de palabras a la Vista
 		request.setAttribute("listaPalabras", todasPalabras);
